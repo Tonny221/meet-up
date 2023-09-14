@@ -11,7 +11,7 @@ datasource db {
 }
 
 model MeetUp {
-  id    Int    @id @default(autoincrement())
-  title String @db.VarChar(255)
-  text  String
+  id          Int    @id @default(autoincrement())
+  title       String @db.VarChar(255)
+  description String
 }

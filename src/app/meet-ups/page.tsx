@@ -1,5 +1,11 @@
+import MeetUpForm from "@/components/MeetUpForm";
+
 const page = () => {
-  return <div></div>;
+  return (
+    <div>
+      <MeetUpForm />
+    </div>
+  );
 };
 
 export default page;
