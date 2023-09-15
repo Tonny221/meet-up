@@ -11,6 +11,10 @@ export const POST = async (req: Request) => {
 };
 
 export const GET = async () => {
-  const result = await prisma.meetUp.findMany();
-  return NextResponse.json(result);
+  try {
+    const result = await prisma.meetUp.findMany();
+    return NextResponse.json(result);
+  } catch (error) {
+    return NextResponse.json(error);
+  }
 };
