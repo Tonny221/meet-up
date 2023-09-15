@@ -9,3 +9,8 @@ export const POST = async (req: Request) => {
   });
   return NextResponse.json(result);
 };
+
+export const GET = async () => {
+  const result = await prisma.meetUp.findMany();
+  return NextResponse.json(result);
+};
