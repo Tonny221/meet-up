@@ -1,4 +1,5 @@
 import React from "react";
+import { Button } from "./ui/button";
 
 type Props = {
   title: string;
@@ -7,11 +8,10 @@ type Props = {
 
 const MeetUpCard = ({ title, descritpion }: Props) => {
   return (
-    <section className="border-solid border-black border rounded-xl col-span-1">
+    <section className="border-solid border-black border p-4 rounded-xl flex flex-col gap-4 col-span-1">
       <h1 className="text-center">{title}</h1>
-      <div className="p-4">
-        <p>{descritpion}</p>
-      </div>
+      <p>{descritpion}</p>
+      <Button>View</Button>
     </section>
   );
 };
