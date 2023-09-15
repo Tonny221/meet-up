@@ -7,8 +7,8 @@ type Props = {
 
 const MeetUpCard = ({ title, descritpion }: Props) => {
   return (
-    <section className="bg-red-400">
-      <h1>{title}</h1>
+    <section className="border-solid border-black border rounded-xl col-span-1">
+      <h1 className="text-center">{title}</h1>
       <p>{descritpion}</p>
     </section>
   );

@@ -8,15 +8,17 @@ const page = async () => {
   return (
     <div>
       <MeetUpForm />
-      {data.map((el) => {
-        return (
-          <MeetUpCard
-            key={el.title}
-            title={el.title}
-            descritpion={el.description}
-          />
-        );
-      })}
+      <div className="p-4 grid grid-cols-4 gap-8">
+        {data.map((el) => {
+          return (
+            <MeetUpCard
+              key={el.title}
+              title={el.title}
+              descritpion={el.description}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };
