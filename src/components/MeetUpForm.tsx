@@ -9,7 +9,7 @@ const MeetUpForm = () => {
   const submitData = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     try {
-      await axios.post("api/meetUp", meetUp);
+      await axios.post("api/meet", meetUp);
     } catch (error) {
       console.error(error);
     }
@@ -27,11 +27,13 @@ const MeetUpForm = () => {
       <h1>Create new meet up</h1>
       <input
         type="text"
+        name="title"
         placeholder="title"
-        onChange={(e) => {}}
+        onChange={changeValue}
         value={meetUp.title}
       />
       <input
+        name="description"
         type="text"
         placeholder="description"
         onChange={changeValue}
