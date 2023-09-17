@@ -10,8 +10,23 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model MeetUp {
-  id          Int    @id @default(autoincrement())
-  title       String @db.VarChar(255)
+model Location {
+  id         String  @id @default(uuid())
+  country    String
+  state      String
+  district   String
+  street     String
+  number     String
+  complement String?
+  Meet       Meet[]
+}
+
+model Meet {
+  id          String   @id @default(uuid())
+  title       String   @db.VarChar(255)
   description String
+  image       String
+  location    Location @relation(fields: [locationId], references: [id])
+  creat_at    DateTime
+  locationId  String
 }

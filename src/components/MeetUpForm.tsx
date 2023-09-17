@@ -1,15 +1,18 @@
 "use client";
 
-import axios from "axios";
+import api from "@/services/api";
 import { ChangeEvent, useState } from "react";
+import { Form } from "./ui/form";
+import { useForm } from "react-hook-form";
 
 const MeetUpForm = () => {
   const [meetUp, setMeetUp] = useState({ title: "", description: "" });
+  const form = useForm();
 
   const submitData = async (e: React.SyntheticEvent) => {
     e.preventDefault();
     try {
-      await axios.post("api/meet", meetUp);
+      await api.post("api/meet", meetUp);
     } catch (error) {
       console.error(error);
     }
