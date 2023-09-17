@@ -27,6 +27,6 @@ model Meet {
   description String
   image       String
   location    Location @relation(fields: [locationId], references: [id])
-  creat_at    DateTime
+  creat_at    DateTime @default(now())
   locationId  String
 }
