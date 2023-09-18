@@ -18,15 +18,16 @@ model Location {
   street     String
   number     String
   complement String?
-  Meet       Meet[]
+  meetId     String  @unique
+  meet       Meet    @relation(fields: [meetId], references: [id])
 }
 
 model Meet {
-  id          String   @id @default(uuid())
-  title       String   @db.VarChar(255)
+  id          String    @id @default(uuid())
+  title       String    @db.VarChar(255)
   description String
   image       String
-  location    Location @relation(fields: [locationId], references: [id])
-  creat_at    DateTime @default(now())
+  location    Location?
+  creat_at    DateTime  @default(now())
   locationId  String
 }
