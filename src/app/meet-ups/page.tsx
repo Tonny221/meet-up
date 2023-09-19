@@ -1,3 +1,4 @@
+import Aside from "@/components/Aside";
 import MeetUpCard from "@/components/MeetUpCard";
 import MeetUpForm from "@/components/MeetUpForm";
 import { getMeetUps } from "@/utils/requests";
@@ -7,9 +8,8 @@ const page = async () => {
   const data = await getMeetUps();
 
   return (
-    <div>
-      <Link href={"/meet-ups/create"}>Create new Meet Up</Link>
-      <div className="p-4 grid grid-cols-4 gap-8">
+    <div className="flex">
+      <div className="p-4 flex-1 grid grid-cols-4 gap-8">
         {data.map((el) => {
           return (
             <MeetUpCard
@@ -20,6 +20,7 @@ const page = async () => {
           );
         })}
       </div>
+      <Aside />
     </div>
   );
 };
