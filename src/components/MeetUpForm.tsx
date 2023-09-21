@@ -1,49 +1,33 @@
 "use client";
 
-import api from "@/services/api";
-import { ChangeEvent, useState } from "react";
-import { Form } from "./ui/form";
+import { Form, FormField } from "./ui/form";
 import { useForm } from "react-hook-form";
+import TextInput from "./TextInput";
 
 const MeetUpForm = () => {
-  const [meetUp, setMeetUp] = useState({ title: "", description: "" });
   const form = useForm();
 
-  const submitData = async (e: React.SyntheticEvent) => {
-    e.preventDefault();
-    try {
-      await api.post("api/meet", meetUp);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const changeValue = (e: ChangeEvent<HTMLInputElement>) => {
-    setMeetUp({
-      ...meetUp,
-      [e.target.name]: e.target.value,
-    });
-  };
-
   return (
-    <form className="border-solid border-black" onSubmit={submitData}>
-      <h1>Create new meet up</h1>
-      <input
-        type="text"
+    <Form {...form}>
+      <TextInput
+        control={form.control}
+        label="Title"
+        placeholder="Type the meet up title"
         name="title"
-        placeholder="title"
-        onChange={changeValue}
-        value={meetUp.title}
       />
-      <input
-        name="description"
-        type="text"
-        placeholder="description"
-        onChange={changeValue}
-        value={meetUp.description}
+      <TextInput
+        control={form.control}
+        label="Description"
+        placeholder="Type the meet up description"
+        name="descritpion"
       />
-      <input type="submit" onChange={changeValue} value="Create" />
-    </form>
+      <TextInput
+        control={form.control}
+        label="Image"
+        placeholder="Type the meet up image URL"
+        name="image"
+      />
+    </Form>
   );
 };
 
