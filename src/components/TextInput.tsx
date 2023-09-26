@@ -51,6 +51,7 @@ const TextInput = ({
         <FormItem>
           <FormLabel>{label}</FormLabel>
           <FormControl>
+            {/* Here's the problem */}
             <Input {...field} placeholder={placeholder} />
           </FormControl>
           <FormDescription>{description}</FormDescription>

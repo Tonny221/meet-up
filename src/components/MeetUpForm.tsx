@@ -14,7 +14,7 @@ const MeetUpForm = () => {
   });
 
   type Inputs = {};
-  form.control;
+
   const onSubmit: SubmitHandler<Inputs> = (data) => console.log(data);
 
   return (
