@@ -26,6 +26,7 @@ const MeetUpForm = () => {
 
   return (
     <Form {...form}>
+      <span>{JSON.stringify(form.control._formValues)}</span>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
         <FormField
           control={form.control}
@@ -126,7 +127,13 @@ const MeetUpForm = () => {
             <FormItem>
               <FormLabel>Number</FormLabel>
               <FormControl>
-                <Input placeholder="type the meet up number" {...field} />
+                <Input
+                  placeholder="type the meet up number"
+                  {...field}
+                  {...form.control.register("location.number", {
+                    valueAsNumber: true,
+                  })}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
