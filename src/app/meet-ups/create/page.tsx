@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 const page = () => {
   return (
-    <Card className="w-2/5 mx-auto">
+    <Card className="w-2/5 mx-auto mb-8">
       <CardHeader>
         <CardTitle>Create new meet up</CardTitle>
       </CardHeader>
