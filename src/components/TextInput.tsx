@@ -8,14 +8,32 @@ import {
   FormMessage,
 } from "./ui/form";
 import { Input } from "./ui/input";
-import { Control, FieldValues } from "react-hook-form";
+import { Control } from "react-hook-form";
+
+type formSchema = {
+  title: string;
+  description: string;
+  image: string;
+  location: {
+    number: number;
+    country: string;
+    state: string;
+    district: string;
+    street: string;
+    complement: string;
+  };
+};
+
+type control = Control<formSchema, any>;
+
+type name = keyof formSchema;
 
 type Props = {
-  name: string;
+  name: name;
   label: string;
   placeholder: string;
   description?: string;
-  control: Control<FieldValues, any>;
+  control: control;
 };
 
 const TextInput = ({
