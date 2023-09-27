@@ -5,8 +5,8 @@ type Props = {};
 
 const Header = (props: Props) => {
   return (
-    <header className="p-4 flex justify-center">
-      <nav className="flex flex-row gap-8">
+    <header className="p-4 bg-black flex justify-center">
+      <nav className="hidden md:flex flex-row gap-8">
         <Link href={"/"} className="hover:underline text-xl">
           home
         </Link>
