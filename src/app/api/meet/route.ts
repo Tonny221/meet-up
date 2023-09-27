@@ -7,18 +7,22 @@ export const POST = async (req: Request) => {
 
   const result = await prisma.meet.create({
     data: {
-      title: "teste",
+      title: "",
       description: "",
+      image: "",
       location: {
-        connect: {
+        create: {
           country: "",
           state: "",
           district: "",
           street: "",
-          number: "",
+          number: 0,
           complement: "",
         },
       },
+    },
+    include: {
+      location: true,
     },
   });
   return NextResponse.json(result);
