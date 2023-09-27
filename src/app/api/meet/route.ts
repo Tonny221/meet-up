@@ -1,23 +1,24 @@
 import { NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
+import { Inputs } from "@/components/MeetUpForm";
 
 export const POST = async (req: Request) => {
-  const data = await req.json();
+  const data: Inputs = await req.json();
   console.log(data);
 
   const result = await prisma.meet.create({
     data: {
-      title: "",
-      description: "",
-      image: "",
+      title: data.title,
+      description: data.description,
+      image: data.image,
       location: {
         create: {
-          country: "",
-          state: "",
-          district: "",
-          street: "",
-          number: 0,
-          complement: "",
+          country: data.location.country,
+          state: data.location.state,
+          district: data.location.district,
+          street: data.location.street,
+          number: data.location.number,
+          complement: data.location.complement,
         },
       },
     },

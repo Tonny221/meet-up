@@ -16,6 +16,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "./ui/input";
 import api from "@/services/api";
 
+export type Inputs = z.infer<typeof formSchema>;
+
 const MeetUpForm = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -33,8 +35,6 @@ const MeetUpForm = () => {
       },
     },
   });
-
-  type Inputs = z.infer<typeof formSchema>;
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
     api.post("api/meet", data);
