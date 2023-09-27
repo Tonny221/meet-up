@@ -7,19 +7,20 @@ import {
   CardHeader,
   CardTitle,
 } from "./ui/card";
+import Image from "next/image";
 
 type Props = {
   title: string;
   descritpion: string;
+  image: string;
 };
 
-const MeetUpCard = ({ title, descritpion }: Props) => {
+const MeetUpCard = ({ title, descritpion, image }: Props) => {
   return (
     <Card className="col-span-1">
       <CardHeader>
-        <CardTitle>
-          <h1>{title}</h1>
-        </CardTitle>
+        <Image src={image} width={350} height={50} alt="Meet-image" />
+        <CardTitle>{title}</CardTitle>
       </CardHeader>
       <CardContent>
         <p>{descritpion}</p>

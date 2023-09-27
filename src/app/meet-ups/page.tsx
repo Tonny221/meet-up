@@ -1,11 +1,11 @@
 import Aside from "@/components/Aside";
 import MeetUpCard from "@/components/MeetUpCard";
-import MeetUpForm from "@/components/MeetUpForm";
+import { Inputs } from "@/components/MeetUpForm";
 import { getMeetUps } from "@/utils/requests";
 import Link from "next/link";
 
 const page = async () => {
-  const data = await getMeetUps();
+  const data: Inputs[] = await getMeetUps();
 
   return (
     <div className="flex">
@@ -16,6 +16,7 @@ const page = async () => {
               key={el.title}
               title={el.title}
               descritpion={el.description}
+              image={el.image}
             />
           );
         })}
