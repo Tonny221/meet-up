@@ -17,7 +17,7 @@ model Location {
   state      String
   district   String
   street     String
-  number     String
+  number     Int
   complement String?
   meetId     String  @unique
   meet       Meet    @relation(fields: [meetId], references: [id])
