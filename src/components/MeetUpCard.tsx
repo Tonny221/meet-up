@@ -17,7 +17,7 @@ type Props = {
 
 const MeetUpCard = ({ title, descritpion, image }: Props) => {
   return (
-    <Card className="col-span-1">
+    <Card className="col-span-4 md:col-span-1">
       <CardHeader>
         <Image src={image} width={350} height={50} alt="Meet-image" />
         <CardTitle>{title}</CardTitle>
