@@ -18,6 +18,19 @@ import { Input } from "./ui/input";
 const MeetUpForm = () => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
+    defaultValues: {
+      title: "",
+      description: "",
+      image: "",
+      location: {
+        country: "",
+        state: "",
+        district: "",
+        street: "",
+        number: 0,
+        complement: "",
+      },
+    },
   });
 
   type Inputs = z.infer<typeof formSchema>;
@@ -26,7 +39,6 @@ const MeetUpForm = () => {
 
   return (
     <Form {...form}>
-      <span>{JSON.stringify(form.control._formValues)}</span>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
         <FormField
           control={form.control}
