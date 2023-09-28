@@ -23,7 +23,7 @@ const Header = (props: Props) => {
           meet ups
         </Link>
       </nav>
-      <menu>
+      <menu className="md:hidden">
         <DropdownMenu>
           <DropdownMenuTrigger>
             <Image
