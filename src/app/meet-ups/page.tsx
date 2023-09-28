@@ -6,7 +6,7 @@ import { getMeetUps } from "@/utils/requests";
 const page = async () => {
   const data: Inputs[] = await getMeetUps();
   return (
-    <div className="flex">
+    <div className="flex flex-col-reverse md:flex-row">
       <div className="p-4 flex-1 grid grid-cols-4 gap-8">
         {data.map((el) => {
           return (
