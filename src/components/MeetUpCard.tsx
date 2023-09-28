@@ -8,14 +8,16 @@ import {
   CardTitle,
 } from "./ui/card";
 import Image from "next/image";
+import Link from "next/link";
 
 type Props = {
+  uuid: string;
   title: string;
   descritpion: string;
   image: string;
 };
 
-const MeetUpCard = ({ title, descritpion, image }: Props) => {
+const MeetUpCard = ({ uuid, title, descritpion, image }: Props) => {
   return (
     <Card className="col-span-4 md:col-span-1">
       <CardHeader>
@@ -32,7 +34,9 @@ const MeetUpCard = ({ title, descritpion, image }: Props) => {
         <p>{descritpion}</p>
       </CardContent>
       <CardFooter>
-        <Button>View</Button>
+        <Link href={""}>
+          <Button>View</Button>
+        </Link>
       </CardFooter>
     </Card>
   );
