@@ -4,7 +4,7 @@ import { Inputs } from "@/components/MeetUpForm";
 
 export const POST = async (req: Request) => {
   const data: Inputs = await req.json();
-  console.log(data);
+  // console.log(data);
 
   const result = await prisma.meet.create({
     data: {
@@ -29,7 +29,7 @@ export const POST = async (req: Request) => {
   return NextResponse.json(result);
 };
 
-export const GET = async () => {
+export const GET = async (req: Request) => {
   try {
     const result = await prisma.meet.findMany();
     return NextResponse.json(result);

@@ -17,7 +17,7 @@ type Props = {
   image: string;
 };
 
-const MeetUpCard = ({ uuid, title, descritpion, image }: Props) => {
+const MeetUpCard = ({ title, image }: Props) => {
   return (
     <Card className="col-span-4 md:col-span-1">
       <CardHeader>

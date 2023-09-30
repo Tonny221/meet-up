@@ -9,7 +9,7 @@ export const getMeetUps = async () => {
   try {
     const response = await api.get("api/meet");
     const data: data[] = response.data;
-    console.log(response.data);
+    // console.log(response.data);
     return data;
   } catch (error) {
     console.error(error);
