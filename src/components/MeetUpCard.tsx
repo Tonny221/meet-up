@@ -21,6 +21,9 @@ const MeetUpCard = ({ uuid, title, descritpion, image }: Props) => {
   return (
     <Card className="col-span-4 md:col-span-1">
       <CardHeader>
+        <CardTitle>{title}</CardTitle>
+      </CardHeader>
+      <CardContent>
         <Image
           src={image}
           width={350}
@@ -28,13 +31,9 @@ const MeetUpCard = ({ uuid, title, descritpion, image }: Props) => {
           className="mb-4"
           alt="Meet-image"
         />
-        <CardTitle>{title}</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <p>{descritpion}</p>
       </CardContent>
       <CardFooter>
-        <Link href={""}>
+        <Link href={"meet-ups/" + title}>
           <Button>View</Button>
         </Link>
       </CardFooter>

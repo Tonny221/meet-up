@@ -7,7 +7,11 @@ type Props = {
 };
 
 const page = ({ params }: Props) => {
-  return <div></div>;
+  return (
+    <div>
+      <h1>{params.meet}</h1>
+    </div>
+  );
 };
 
 export default page;
