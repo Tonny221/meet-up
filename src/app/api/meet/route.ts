@@ -1,4 +1,4 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import prisma from "@/lib/prisma";
 import { Inputs } from "@/components/MeetUpForm";
 
@@ -29,9 +29,10 @@ export const POST = async (req: Request) => {
   return NextResponse.json(result);
 };
 
-export const GET = async (req: Request) => {
+export const GET = async (req: NextRequest) => {
   try {
     const result = await prisma.meet.findMany();
+    console.log(req.nextUrl);
     return NextResponse.json(result);
   } catch (error) {
     return NextResponse.json(error);
