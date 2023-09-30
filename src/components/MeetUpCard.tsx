@@ -17,7 +17,7 @@ type Props = {
   image: string;
 };
 
-const MeetUpCard = ({ title, image }: Props) => {
+const MeetUpCard = ({ uuid, title, image }: Props) => {
   return (
     <Card className="col-span-4 md:col-span-1">
       <CardHeader>
@@ -33,7 +33,7 @@ const MeetUpCard = ({ title, image }: Props) => {
         />
       </CardContent>
       <CardFooter>
-        <Link href={"meet-ups/" + title}>
+        <Link href={"/meet-ups/" + title.toLowerCase()}>
           <Button>View</Button>
         </Link>
       </CardFooter>
