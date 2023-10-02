@@ -1,6 +1,5 @@
 import Aside from "@/components/Aside";
 import MeetUpCard from "@/components/MeetUpCard";
-import { Inputs } from "@/components/MeetUpForm";
 import { data, getMeetUps } from "@/utils/requests";
 
 const page = async () => {
