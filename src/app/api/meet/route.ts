@@ -6,7 +6,6 @@ import { Prisma } from "@prisma/client";
 export const POST = async (req: Request) => {
   try {
     const data: Inputs = await req.json();
-    // console.log(data);
 
     const result = await prisma.meet.create({
       data: {
@@ -41,6 +40,8 @@ export const POST = async (req: Request) => {
 
 export const GET = async (req: NextRequest) => {
   try {
+    console.log(req.nextUrl.searchParams);
+
     const result = await prisma.meet.findMany();
     // console.log(req.nextUrl);
     return NextResponse.json(result);
