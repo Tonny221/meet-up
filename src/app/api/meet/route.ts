@@ -40,7 +40,21 @@ export const POST = async (req: Request) => {
 
 export const GET = async (req: NextRequest) => {
   try {
-    console.log(req.nextUrl.searchParams);
+    if (req.nextUrl.searchParams.get("user")) {
+      const id = req.nextUrl.searchParams.get("user");
+      const meet = await prisma.meet.findUnique({
+        where: {
+          id: id ? id : "",
+        },
+        include: {
+          location: true,
+        },
+      });
+
+      // console.log(meet);
+
+      return NextResponse.json(meet);
+    }
 
     const result = await prisma.meet.findMany();
     // console.log(req.nextUrl);

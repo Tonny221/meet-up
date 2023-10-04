@@ -33,7 +33,7 @@ const MeetUpCard = ({ uuid, title, image }: Props) => {
         />
       </CardContent>
       <CardFooter>
-        <Link href={"/meet-ups/" + title.toLowerCase() + `?meet=${uuid}`}>
+        <Link href={"/meet-ups/" + uuid}>
           <Button>View</Button>
         </Link>
       </CardFooter>
