@@ -44,7 +44,7 @@ export const GET = async (req: NextRequest) => {
       const id = req.nextUrl.searchParams.get("user");
       const meet = await prisma.meet.findUnique({
         where: {
-          id: id ? id : "",
+          id: id!,
         },
         include: {
           location: true,
