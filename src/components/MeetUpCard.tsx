@@ -27,7 +27,7 @@ const MeetUpCard = ({ uuid, title, image }: Props) => {
         <Image
           src={image}
           width={350}
-          height={50}
+          height={200}
           className="mb-4"
           alt="Meet-image"
         />

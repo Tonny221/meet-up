@@ -14,7 +14,7 @@ import formSchema from "@/utils/meetSchema";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "./ui/input";
-import api from "@/services/api";
+import axios from "axios";
 
 export type Inputs = z.infer<typeof formSchema>;
 
@@ -37,7 +37,7 @@ const MeetUpForm = () => {
   });
 
   const onSubmit: SubmitHandler<Inputs> = (data) => {
-    api.post("api/meet", data);
+    axios.post("/api/meet", data);
   };
 
   return (

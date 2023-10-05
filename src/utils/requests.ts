@@ -1,5 +1,7 @@
 import { Inputs } from "@/components/MeetUpForm";
+import prisma from "@/lib/prisma";
 import api from "@/services/api";
+import axios from "axios";
 
 export interface data extends Inputs {
   id: string;
@@ -7,8 +9,8 @@ export interface data extends Inputs {
 
 export const getMeetUps = async () => {
   try {
-    const response = await api.get("api/meet");
-    const data: data[] = response.data;
+    const response = await prisma.meet.findMany();
+    const data = response;
     // console.log(response.data);
     return data;
   } catch (error) {
