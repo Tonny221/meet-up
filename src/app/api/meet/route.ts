@@ -37,29 +37,3 @@ export const POST = async (req: Request) => {
     throw error;
   }
 };
-
-export const GET = async (req: NextRequest) => {
-  try {
-    if (req.nextUrl.searchParams.get("user")) {
-      const id = req.nextUrl.searchParams.get("user");
-      const meet = await prisma.meet.findUnique({
-        where: {
-          id: id!,
-        },
-        include: {
-          location: true,
-        },
-      });
-
-      // console.log(meet);
-
-      return NextResponse.json(meet);
-    }
-
-    const result = await prisma.meet.findMany();
-    // console.log(req.nextUrl);
-    return NextResponse.json(result);
-  } catch (error) {
-    return NextResponse.json(error);
-  }
-};
