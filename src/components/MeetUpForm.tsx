@@ -15,8 +15,8 @@ import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "./ui/input";
 import axios from "axios";
-
 export type Inputs = z.infer<typeof formSchema>;
+import { redirect } from "next/navigation";
 
 const MeetUpForm = () => {
   const form = useForm<z.infer<typeof formSchema>>({
@@ -36,8 +36,13 @@ const MeetUpForm = () => {
     },
   });
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    axios.post("/api/meet", data);
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    try {
+      await axios.post("/api/meet", data);
+      redirect("/");
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (

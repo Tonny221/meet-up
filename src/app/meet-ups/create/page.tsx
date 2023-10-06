@@ -1,5 +1,10 @@
 import MeetUpForm from "@/components/MeetUpForm";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Create New Meet Up",
+};
 
 const page = () => {
   return (
